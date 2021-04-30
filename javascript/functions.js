@@ -3,6 +3,8 @@ const dealerCards = document.querySelector('#dealer-hand');
 const playerScoreBox = document.querySelector('#player-score');
 const dealerScoreBox = document.querySelector('#dealer-score');
 const hitButton = document.querySelector('#hit').addEventListener('click', hit);
+//const standButton = document.querySelector('#stand').addEventListener('click', compareScores);
+
 
 function newGame(){
     playerHand = [];
@@ -16,7 +18,6 @@ function newGame(){
     showScore();
     console.log(currentDeck.length);
 }
-
 
 function deal(){
     let getRandomCard = Math.floor(Math.random() * currentDeck.length);
@@ -39,28 +40,26 @@ function showHands(){
 }
 
 function showScore(){
-    let playerScore = 0;
+    playerScore = 0;
     playerHand.forEach((card) => {
         playerScore += parseInt(card.Value);
     });
     playerScoreBox.innerHTML = playerScore;
-    let dealerScore = 0;
+    dealerScore = 0;
     dealerHand.forEach((card) => {
         dealerScore += parseInt(card.Value);
     })
     dealerScoreBox.innerHTML = dealerScore;
+    return dealerScore;
 }
 
 function hit(){
     let random = Math.floor(Math.random() * currentDeck.length);
-    let card = currentDeck[random]; //uit superdeck random index, krijg random waarde via random index, je spreekt index aan
-    currentDeck.splice(random, 1); //kaart verwijderd, want anders mogelijk duplicaten
-    console.log(card)
-    console.log(currentDeck.length)
-    playerHand.push(card);
-}
-
-
-
-function stand(){
+    let card = currentDeck[random]; 
+    currentDeck.splice(random, 1); 
+    console.log(currentDeck.length);
+    playerHand.push(card)
+    console.log(playerHand);
+    showHands();
+    showScore();
 }
