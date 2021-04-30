@@ -6,20 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLACKJACK</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/jpg" href="Favicon_Image_Location"/>
 </head>
 <body>
 
     <section id="game">
 
-        <button id="start">New Hand</button>
+        <button id="start">New Game</button>
         <button id="hit">Hit</button>
         <button id="stand">Stand</button>
+
+        <div id="playerSide">
+            <p id="username-placeholder"></p>
+            <p id="player-hand"></p>
+            <p id="player-score"></p>
+        </div>
+
+        <div id="dealerSide">
+            <p>Dealer's Cards</p>
+            <p id="dealer-hand"></p>
+            <p id="dealer-score"></p>
+        </div>
 
     </section>
     
 
     <script src="/javascript/card-deck.js"></script>
-    <script src="/javascript/card-logic.js"></script>
+    <script src="/javascript/functions.js"></script>
     <script src="/javascript/game.js"></script>
 </body>
 </html>

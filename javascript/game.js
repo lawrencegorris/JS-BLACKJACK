@@ -1,14 +1,9 @@
 // Setup Game
-
 let username = prompt('Hello, what is your name?');
 alert('Welcome ' + username + ', please enjoy the game. Good luck!');
+const showUsername = document.querySelector('#username-placeholder');
+showUsername.innerHTML = username + '\'s cards: ';
 
-let playerHand = [];
-let dealerHand = [];
-const start = document.querySelector('#start');
-const hit = document.querySelector('#hit');
-const stand = document.querySelector('#stand');
+let currentDeck = createDeck();
 
-
-shuffle(deck);
-console.log(deck);
+const start = document.querySelector('#start').addEventListener('click', newGame);
