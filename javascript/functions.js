@@ -13,6 +13,7 @@ function newGame(){
     dealerHand.push(deal());
     dealerHand.push(deal());
     showHands();
+    showScore();
     console.log(currentDeck.length);
 }
 
@@ -37,10 +38,26 @@ function showHands(){
     dealerCards.innerHTML = currentDealerHand;
 }
 
+function showScore(){
+    let playerScore = 0;
+    playerHand.forEach((card) => {
+        playerScore += parseInt(card.Value);
+    });
+    playerScoreBox.innerHTML = playerScore;
+    let dealerScore = 0;
+    dealerHand.forEach((card) => {
+        dealerScore += parseInt(card.Value);
+    })
+    dealerScoreBox.innerHTML = dealerScore;
+}
+
 function hit(){
-    let randomCard = currentDeck.pop();
-    playerHand.push(randomCard);
-    console.log(randomCard);
+    let random = Math.floor(Math.random() * currentDeck.length);
+    let card = currentDeck[random]; //uit superdeck random index, krijg random waarde via random index, je spreekt index aan
+    currentDeck.splice(random, 1); //kaart verwijderd, want anders mogelijk duplicaten
+    console.log(card)
+    console.log(currentDeck.length)
+    playerHand.push(card);
 }
 
 
