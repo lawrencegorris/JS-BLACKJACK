@@ -10,7 +10,7 @@ function createDeck(){
         }
     }
     return deck;
-}
+} 
 
 function shuffle(deck){
     for (let i = deck.length - 1; i > 0; i--) {
@@ -19,5 +19,4 @@ function shuffle(deck){
         deck[i] = deck[j];
         deck[j] = temp;
     }
-};
-
+}

@@ -6,7 +6,7 @@ const hitButton = document.querySelector('#hit').addEventListener('click', hit);
 const standButton = document.querySelector('#stand').addEventListener('click', stand);
 
 
-function newGame(){
+function newGame(){             //What happens when a new game runs
     playerHand = [];
     dealerHand = [];
     playerScore = 0;
@@ -22,15 +22,14 @@ function newGame(){
 function deal(){
     let getRandomCard = Math.floor(Math.random() * currentDeck.length);
     let card = currentDeck[getRandomCard];
-    currentDeck.splice(getRandomCard, 1);
     return (card);
 }; 
 
 function showHands(){
     let currentPlayerHand = "";
     playerHand.forEach((card) => {
-        currentPlayerHand += card.Rank + " " + card.Suit + " ";
-    });
+        currentPlayerHand += card.Rank + " " + card.Suit + " "
+        });
     playerCards.innerHTML = currentPlayerHand;
     let currentDealerHand = "";
     dealerHand.forEach((card) => {
@@ -44,12 +43,12 @@ function showScore(){
     playerHand.forEach((card) => {
         playerScore += parseInt(card.Value);
     });
-    playerScoreBox.innerHTML = playerScore;
+    playerScoreBox.innerHTML = 'Current value of your hand: ' + playerScore;
     dealerScore = 0;
     dealerHand.forEach((card) => {
         dealerScore += parseInt(card.Value);
     })
-    dealerScoreBox.innerHTML = dealerScore;
+    dealerScoreBox.innerHTML = 'Current value of the dealers hand: ' +dealerScore;
     return dealerScore;
 }
 

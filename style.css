@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(7, 68, 7);
+    color: white;
+    font-size: 800;
+}
+
+.sides{
+    display: block;
+    margin: 0 auto;
+    padding: 25px;
+    width: 750px;
+    height: 350px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#dealerSide {
+    background-color: blue;
+}
+
+#playerSide {
+    margin-top: 25px;
+    background-color: red;
+}
+
+#playerButtons{
+    background-color: brown;
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    height: 150px;
+    text-align: center;
+}
+
+#playerButtons > button{
+    margin-top: 15px;
+    width: 100px;
+    height: 80px;
+}
+
+#start{
+    margin-top: 10px;
+}
+
+.card{
+    background-color: #fff;
+}

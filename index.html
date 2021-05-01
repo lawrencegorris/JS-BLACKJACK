@@ -12,24 +12,25 @@
 
     <section id="game">
 
-        <button id="start">New Game</button>
-        <button id="hit">Hit</button>
-        <button id="stand">Stand</button>
-
-        <div id="playerSide">
-            <p id="username-placeholder"></p>
-            <p id="player-hand"></p>
-            <p id="player-score"></p>
-        </div>
-
-        <div id="dealerSide">
+        <div id="dealerSide" class="sides">
             <p>Dealer's Cards</p>
             <p id="dealer-hand"></p>
             <p id="dealer-score"></p>
         </div>
 
+        <div id="playerSide" class="sides">
+            <p id="username-placeholder"></p>
+            <p id="player-hand"></p>
+            <p id="player-score"></p>
+        </div>
+
+        <div id="playerButtons">
+            <button id="start">New Game</button>
+            <button id="hit">Hit</button>
+            <button id="stand">Stand</button>
+        </div>
+
     </section>
-    
 
     <script src="/javascript/card-deck.js"></script>
     <script src="/javascript/functions.js"></script>
