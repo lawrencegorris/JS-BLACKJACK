@@ -62,14 +62,14 @@ function hit(){
     console.log(playerHand);
     showHands();
     showScore();
-    compareScores();
+    compareScoresHit();
 }
 
 function stand(){
     while(dealerScore <= 15){
         makeDealerDraw();
     } 
-    compareScores();
+    compareScoresStand();
 }
 
 function checkBlackjack(){
@@ -84,7 +84,23 @@ function checkBlackjack(){
     }
 }
 
-function compareScores(){
+function compareScoresStand(){
+    if(playerScore > 21 && dealerScore <= 21){
+        alert('You busted. Dealer wins.')
+    }else if (playerScore < dealerScore && dealerScore <= 21){
+        alert('You lose. Dealer won.');
+    }else if (playerScore == dealerScore && playerScore <= 21 && dealerScore <= 21){
+        alert('Draw.');
+    }else if (playerScore <= 21 && dealerScore < playerScore){
+        alert('You won.');
+    }else if (playerScore < 21 && dealerScore > 21){
+        alert('Dealer busted. You won.');
+    }else if (playerScore > dealerScore){
+        alert('You lose. Dealer wins.')
+    }
+}
+
+function compareScoresHit(){
     if(playerScore > 21 && dealerScore <= 21){
         alert('You busted. Dealer wins.');
     }else if (playerScore <= 21 && dealerScore > 21){
@@ -100,5 +116,5 @@ function makeDealerDraw(){
         dealerHand.push(card)
         showHands();
         showScore();
-        compareScores();
+        compareScoresStand();
 }
