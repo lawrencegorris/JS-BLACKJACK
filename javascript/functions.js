@@ -3,7 +3,7 @@ const dealerCards = document.querySelector('#dealer-hand');
 const playerScoreBox = document.querySelector('#player-score');
 const dealerScoreBox = document.querySelector('#dealer-score');
 const hitButton = document.querySelector('#hit').addEventListener('click', hit);
-//const standButton = document.querySelector('#stand').addEventListener('click', compareScores);
+const standButton = document.querySelector('#stand').addEventListener('click', stand);
 
 
 function newGame(){
@@ -16,7 +16,7 @@ function newGame(){
     dealerHand.push(deal());
     showHands();
     showScore();
-    console.log(currentDeck.length);
+    checkBlackjack();
 }
 
 function deal(){
@@ -62,4 +62,43 @@ function hit(){
     console.log(playerHand);
     showHands();
     showScore();
+    compareScores();
+}
+
+function stand(){
+    while(dealerScore <= 15){
+        makeDealerDraw();
+    } 
+    compareScores();
+}
+
+function checkBlackjack(){
+    if (playerScore > 21){
+        alert('You busted');
+    }else if (dealerScore > 21){
+        alert('Dealer busted');
+    }else if (playerScore == 21 && dealerScore < 21){
+        alert('You won! BlackJack!')
+    }else if (playerScore < 21 && dealerScore == 21){
+        alert('You lost. Dealer BlackJack');
+    }
+}
+
+function compareScores(){
+    if(playerScore > 21 && dealerScore <= 21){
+        alert('You busted. Dealer wins.');
+    }else if (playerScore <= 21 && dealerScore > 21){
+        alert('Dealer busted. You win.');
+    }
+}
+
+
+function makeDealerDraw(){
+        let random = Math.floor(Math.random() * currentDeck.length);
+        let card = currentDeck[random]; 
+        currentDeck.splice(random, 1); 
+        dealerHand.push(card)
+        showHands();
+        showScore();
+        compareScores();
 }
